@@ -1,49 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.yensei</groupId>
-	<artifactId>spring-cloud-server</artifactId>
+	<artifactId>spring-cloud-config-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<name>spring-cloud-server</name>
-	<description>Ejemplo o proyecto tipo template</description>
+	<description>Template para un spring cloung config server</description>
+	
+
 	<properties>
 		<java.version>11</java.version>
-	</properties>
-	 <dependencyManagement>
+		<spring.cloud-version>2020.0.2</spring.cloud-version>
+<!-- 		<spring.cloud-version-hoxton>Hoxton.SR8</spring.cloud-version> -->
+		<spring.cloud-version-finchley>Finchley.SR4</spring.cloud-version-finchley>
+		<spring.cloud-version-angel>Angel.SR4</spring.cloud-version-angel>
+	</properties>	 
+	
+	
+	<dependencies>
+		
+	    <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+	    
+	    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>		
+	</dependencies>
+		
+	<dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.RELEASE</version>
+                <version>${spring.cloud-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -52,5 +62,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
